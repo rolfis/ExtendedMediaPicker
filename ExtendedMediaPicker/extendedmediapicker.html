@@ -1,0 +1,35 @@
+<style type="text/css">
+        .umb-mediapicker .image-name { display: none; text-align:left; position: absolute; top: 0px; left: 0px; background: white; padding: 2px 8px 2px 8px; opacity: 0.8; }
+        .umb-mediapicker .picked-image { opacity: 0.8; } 
+        .umb-mediapicker .media-image { color: black; right: 48px; }
+        .umb-sortable-thumbnails li:hover .image-name { display: block; }
+</style>
+
+<div class="umb-editor umb-mediapicker" ng-controller="CTH.ExtendedMediaPickerController">
+    
+	<ul ui-sortable="sortableOptions" ng-model="images" class="umb-sortable-thumbnails">
+		<li style="width: 320px; overflow: auto;" ng-repeat="image in images">
+			<img ng-src="{{image.thumbnail}}" alt="{{image.name}}" ng-show="image.thumbnail">
+
+            <span class="icon-holder" ng-hide="image.thumbnail">
+                <i class="icon {{image.icon}} large" ></i>
+                <small>{{image.name}}</small>
+            </span>
+            
+            <div class="image-name">
+                <small>{{image.name}}</small>
+            </div>
+            
+            <a title="Edit in Media" href="#media/media/edit/{{image.id}}" class="picked-image media-image"><i class="icon icon-umb-media"></i></a>
+            <a title="Remove link to Media" href class="picked-image" ng-click="remove($index)"><i class="icon icon-delete"></i></a>
+		</li>
+	</ul>
+
+	<ul class="umb-sortable-thumbnails" ng-if="showAdd()">
+		<li style="border: none">	
+			<a href="#" class="add-link" ng-click="add()" prevent-default>
+				<i class="icon icon-add large"></i> 
+			</a>
+		</li>
+	</ul>
+</div>

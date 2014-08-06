@@ -1,0 +1,33 @@
+{     
+    propertyEditors: [      
+        {
+			alias: "CTH.ExtendedMediaPicker",
+            name: "Extended Media Picker",
+			
+            // the html file we will load for the editor
+            editor: {
+                view: "~/App_Plugins/ExtendedMediaPicker/extendedmediapicker.html"
+            },
+            
+            prevalues:{
+                fields:[
+                    {
+                        label:"Pick multiple items",
+                        key:"multiPicker",
+                        view:"boolean"
+                    },
+                    {
+                        label:"Start node",
+                        key:"startNodeId",
+                        view:"mediapicker"
+                    }
+               ]
+            }
+        }
+    ],
+
+    // array of files we want to inject into the application on app_start
+    javascript: [
+        '~/App_Plugins/ExtendedMediaPicker/extendedmediapicker.controller.js'
+    ]
+}
