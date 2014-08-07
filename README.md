@@ -1,5 +1,5 @@
-ExtendedMediaPicker
-===================
+Extended Media Picker
+=====================
 
 ![alt text](http://our.umbraco.org/media/upload/f733f763-edc2-4a85-87be-16e16ecdb574/ExtendedMediaPicker.png)
 
