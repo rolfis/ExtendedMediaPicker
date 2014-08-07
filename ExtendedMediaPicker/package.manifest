@@ -6,7 +6,8 @@
 			
             // the html file we will load for the editor
             editor: {
-                view: "~/App_Plugins/ExtendedMediaPicker/extendedmediapicker.html"
+                view: "~/App_Plugins/ExtendedMediaPicker/extendedmediapicker.html",
+                valueType: "INT"
             },
             
             prevalues:{
