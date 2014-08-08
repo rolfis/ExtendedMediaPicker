@@ -7,4 +7,4 @@ Just copy to the ~/App_Plugins folder and restart the Application Pool. You shou
 
 This Property Editor is based on the Media Picker in 7.1.4 with just some css and html hacks.
 
-![alt text](http://our.umbraco.org/media/upload/f733f763-edc2-4a85-87be-16e16ecdb574/ExtendedMediaPicker.png)
+![alt text](http://our.umbraco.org/media/wiki/130597/635431079724824690_ExtendedMediaPickerComparisonpng.png)
