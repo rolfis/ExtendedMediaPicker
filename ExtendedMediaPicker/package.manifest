@@ -7,7 +7,7 @@
             // the html file we will load for the editor
             editor: {
                 view: "~/App_Plugins/ExtendedMediaPicker/extendedmediapicker.html",
-                valueType: "INT"
+                valueType: "JSON"
             },
             
             prevalues:{
