@@ -1,7 +1,7 @@
 //this controller simply tells the dialogs service to open a mediaPicker window
 //with a specified callback, this callback will receive an object with a selection on it
 angular.module('umbraco').controller("CTH.ExtendedMediaPickerController",
-    function ($rootScope, $scope, dialogService, entityResource, mediaResource, mediaHelper, $timeout) {
+    function ($rootScope, $scope, dialogService, entityResource, mediaResource, mediaHelper, assetsService, $timeout) {
 
         //check the pre-values for multi-picker
         var multiPicker = $scope.model.config.multiPicker && $scope.model.config.multiPicker !== '0' ? true : false;
@@ -116,4 +116,6 @@ angular.module('umbraco').controller("CTH.ExtendedMediaPickerController",
             setupViewModel();
         };
 
+        // tell assetService to load separate CSS for this editor
+        assetsService.loadCss("/App_Plugins/ExtendedMediaPicker/lib/extendedmediapicker.css");
     });
