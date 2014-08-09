@@ -1,0 +1,24 @@
+<div class="umb-panel" ng-controller="CTH.ExtendedMediaPickerDialogController">
+    <div class="umb-panel-header">
+        <h1 class="headline">Remove</h1>
+    </div>
+    <div class="umb-panel-body" >
+    	<div class="umb-pane">
+	        <p class="umb-abstract">
+	        	Are you sure you want to remove the link to this media item?
+	        </p>
+            <div class="umb-el-wrap umb-panel-buttons">
+                <div class="btn-toolbar umb-btn-toolbar pull-right">
+                    <a href ng-click="close()" class="btn btn-link">
+                        <localize key="general_cancel">Cancel</localize>
+                    </a>
+                    <button
+                            class="btn btn-primary"
+                            ng-click="submit(1)">
+                            <localize key="general_ok">OK</localize>
+                    </button>
+                </div>
+            </div>
+	    </div>
+    </div>
+</div>
