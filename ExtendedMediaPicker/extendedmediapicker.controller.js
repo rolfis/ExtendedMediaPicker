@@ -1,14 +1,17 @@
 //this controller simply tells the dialogs service to open a mediaPicker window
 //with a specified callback, this callback will receive an object with a selection on it
 angular.module('umbraco').controller("CTH.ExtendedMediaPickerController",
-    function ($rootScope, $scope, dialogService, entityResource, mediaResource, mediaHelper, assetsService, $timeout) {
+    function ($rootScope, $scope, dialogService, entityResource, mediaResource, mediaHelper, $timeout, userService, assetsService) {
 
-        //check the pre-values for multi-picker
+		//check the pre-values for multi-picker
         var multiPicker = $scope.model.config.multiPicker && $scope.model.config.multiPicker !== '0' ? true : false;
 
-        if (!$scope.model.config.startNodeId)
-             $scope.model.config.startNodeId = -1;
-
+		// set the media start node
+		if (!$scope.model.config.startNodeId) {
+            userService.getCurrentUser().then(function (userData) {
+                $scope.model.config.startNodeId = userData.startMediaId;
+            });
+        }
          
         function setupViewModel() {
             $scope.images = [];
