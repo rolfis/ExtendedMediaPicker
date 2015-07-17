@@ -6,7 +6,7 @@
 			
             // the html file we will load for the editor
             editor: {
-                view: "~/App_Plugins/ExtendedMediaPicker/extendedmediapicker.html",
+                view: "/App_Plugins/ExtendedMediaPicker/extendedmediapicker.html",
                 valueType: "JSON"
             },
             
@@ -16,6 +16,11 @@
                         label:"Pick multiple items",
                         key:"multiPicker",
                         view:"boolean"
+                    },
+                    {
+                        label: "Confirm remove",
+                        key: "confirmRemove",
+                        view: "boolean"
                     },
                     {
                         label:"Start node",
@@ -29,6 +34,7 @@
 
     // array of files we want to inject into the application on app_start
     javascript: [
-        '~/App_Plugins/ExtendedMediaPicker/extendedmediapicker.controller.js'
+        '/App_Plugins/ExtendedMediaPicker/extendedmediapicker.controller.js',
+        '/App_Plugins/ExtendedMediaPicker/extendedmediapicker.dialog.controller.js'
     ]
 }

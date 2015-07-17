@@ -6,13 +6,16 @@ angular.module('umbraco').controller("CTH.ExtendedMediaPickerController",
 		//check the pre-values for multi-picker
         var multiPicker = $scope.model.config.multiPicker && $scope.model.config.multiPicker !== '0' ? true : false;
 
+       	// pre-value for remove confirmation
+        var confirmRemove = $scope.model.config.confirmRemove && $scope.model.config.confirmRemove !== '0' ? true : false;
+
 		// set the media start node
 		if (!$scope.model.config.startNodeId) {
             userService.getCurrentUser().then(function (userData) {
                 $scope.model.config.startNodeId = userData.startMediaId;
             });
         }
-         
+                 
         function setupViewModel() {
             $scope.images = [];
             $scope.ids = []; 
@@ -50,12 +53,30 @@ angular.module('umbraco').controller("CTH.ExtendedMediaPickerController",
 
         setupViewModel();
 
+        // Remove link to media
         $scope.remove = function(index) {
-            $scope.images.splice(index, 1);
-            $scope.ids.splice(index, 1);
-            $scope.sync();
+            if (confirmRemove) {
+                dialogService.open({
+                    template: '/App_Plugins/ExtendedMediaPicker/confirmDeleteMediaLink.html', 
+                    show: true, 
+                    dialogData: index,
+                    callback: function(confirm) {
+                        if (confirm) {
+                            $scope.images.splice(index, 1);
+                            $scope.ids.splice(index, 1);
+                            $scope.sync();
+                        }
+                    }
+                });
+            }
+            else {
+                $scope.images.splice(index, 1);
+                $scope.ids.splice(index, 1);
+                $scope.sync();
+            }
         };
 
+        // Add new link to media
         $scope.add = function() {
             dialogService.mediaPicker({
                 startNodeId: $scope.model.config.startNodeId,
