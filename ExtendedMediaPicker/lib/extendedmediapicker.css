@@ -8,6 +8,10 @@
     padding: 2px 8px 2px 8px; 
     opacity: 0.8;
 }
+.umb-sortable-thumbnails li img { 
+    min-height:50px;
+    min-width:50px;
+}
 .umb-sortable-thumbnails li:hover .image-name { 
     display: block;
 }
